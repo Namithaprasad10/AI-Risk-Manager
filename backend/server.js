@@ -20,12 +20,6 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// React frontend build folder
-const frontendPath = path.join(
-  __dirname,
-  "../frontend/dist"
-);
-
 // ============================================================
 // MIDDLEWARE
 // ============================================================
@@ -45,16 +39,36 @@ app.use("/api/returns", returnRoutes);
 // SERVE REACT FRONTEND
 // ============================================================
 
-app.use(express.static(frontendPath));
+const frontendPath = path.join(
+  __dirname,
+  "../frontend/dist"
+);
 
-// React Router fallback
-app.use((req, res, next) => {
-  if (req.path.startsWith("/api/")) {
-    return next();
-  }
+app.use(
+  express.static(frontendPath)
+);
 
+// ============================================================
+// HEALTH CHECK
+// ============================================================
+
+app.get("/api/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "AI Risk Manager API is running",
+  });
+});
+
+// ============================================================
+// REACT ROUTER FALLBACK
+// ============================================================
+
+app.get("/{*splat}", (req, res) => {
   res.sendFile(
-    path.join(frontendPath, "index.html")
+    path.join(
+      frontendPath,
+      "index.html"
+    )
   );
 });
 
@@ -68,10 +82,15 @@ connectDB();
 // SERVER
 // ============================================================
 
-const PORT = process.env.PORT || 5000;
+const PORT =
+  process.env.PORT || 5000;
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(
-    `Server running on port ${PORT}`
-  );
-});
+app.listen(
+  PORT,
+  "0.0.0.0",
+  () => {
+    console.log(
+      `Server running on port ${PORT}`
+    );
+  }
+);
