@@ -14,7 +14,7 @@ String(prediction || "").toLowerCase() === "fraud";
 
 return ( <div className="risk-summary">
 
-```
+
   <div className="risk-summary-header">
 
     <div>

@@ -30,7 +30,7 @@ value: safeProbability,
 
 return ( <div className="risk-chart-card">
 
-```
+
   <div className="risk-chart-header">
     <div>
       <span className="risk-chart-label">

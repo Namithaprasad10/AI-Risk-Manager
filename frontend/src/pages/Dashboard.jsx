@@ -61,7 +61,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        "api/risk/transactions",
+        "/api/risk/transactions",
         {
           method: "GET",
           headers: {
@@ -107,7 +107,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        "api/returns",
+        "/api/returns",
         {
           method: "GET",
           headers: {

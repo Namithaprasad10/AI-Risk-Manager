@@ -43,7 +43,7 @@ className={`transaction-result ${
       }`}
 >
 
-```
+
   <div className="transaction-result-header">
 
     <div>

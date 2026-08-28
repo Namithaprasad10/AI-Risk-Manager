@@ -74,7 +74,7 @@ className = "recommendation-low";
 return (
 <div className={`risk-recommendation ${className}`}>
 
-```
+
   <div className="recommendation-header">
 
     <div className="recommendation-icon">

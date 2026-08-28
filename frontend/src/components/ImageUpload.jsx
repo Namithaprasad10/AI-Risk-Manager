@@ -9,7 +9,7 @@ const [fileName, setFileName] = useState("");
 const handleFileChange = (event) => {
 const file = event.target.files?.[0];
 
-```
+
 if (!file) {
   return;
 }
@@ -27,7 +27,7 @@ setPreview(imageUrl);
 if (onImageSelect) {
   onImageSelect(file);
 }
-```
+
 
 };
 
@@ -35,7 +35,7 @@ const handleRemove = () => {
 setPreview(null);
 setFileName("");
 
-```
+
 if (inputRef.current) {
   inputRef.current.value = "";
 }
@@ -43,13 +43,13 @@ if (inputRef.current) {
 if (onImageSelect) {
   onImageSelect(null);
 }
-```
+
 
 };
 
 return ( <div className="image-upload">
 
-```
+
   <div className="image-upload-header">
     <div>
       <h3>Upload Transaction Image</h3>

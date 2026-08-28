@@ -71,7 +71,7 @@ function CheckTransaction() {
       }
 
       const response = await fetch(
-        "api/risk/analyze",
+        "/api/risk/analyze",
         {
           method: "POST",
 
