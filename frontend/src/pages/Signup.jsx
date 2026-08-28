@@ -48,7 +48,7 @@ function Signup() {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/signup",
+        "api/auth/signup",
         {
           method: "POST",
           headers: {

@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.route.js";
 import riskRoutes from "./routes/risk.route.js";
@@ -10,23 +13,65 @@ dotenv.config();
 
 const app = express();
 
+// ============================================================
+// PATH CONFIGURATION
+// ============================================================
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// React frontend build folder
+const frontendPath = path.join(
+  __dirname,
+  "../frontend/dist"
+);
+
+// ============================================================
+// MIDDLEWARE
+// ============================================================
+
 app.use(cors());
 app.use(express.json());
+
+// ============================================================
+// API ROUTES
+// ============================================================
 
 app.use("/api/auth", authRoutes);
 app.use("/api/risk", riskRoutes);
 app.use("/api/returns", returnRoutes);
 
+// ============================================================
+// SERVE REACT FRONTEND
+// ============================================================
+
+app.use(express.static(frontendPath));
+
+// React Router fallback
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/")) {
+    return next();
+  }
+
+  res.sendFile(
+    path.join(frontendPath, "index.html")
+  );
+});
+
+// ============================================================
+// DATABASE
+// ============================================================
+
 connectDB();
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "AI Risk Manager API is running",
-  });
-});
+// ============================================================
+// SERVER
+// ============================================================
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(
+    `Server running on port ${PORT}`
+  );
 });
