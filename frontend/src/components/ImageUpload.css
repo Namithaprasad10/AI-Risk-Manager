@@ -1,0 +1,177 @@
+.image-upload {
+width: 100%;
+padding: 22px;
+box-sizing: border-box;
+
+background: #ffffff;
+border: 1px solid #e5e7eb;
+border-radius: 16px;
+}
+
+.image-upload-header h3 {
+margin: 0;
+font-size: 18px;
+color: #111827;
+}
+
+.image-upload-header p {
+margin: 7px 0 18px;
+color: #64748b;
+font-size: 14px;
+line-height: 1.5;
+}
+
+.upload-box {
+width: 100%;
+min-height: 190px;
+
+border: 2px dashed #cbd5e1;
+border-radius: 14px;
+
+background: #f8fafc;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+cursor: pointer;
+
+transition:
+border-color 0.2s ease,
+background 0.2s ease,
+transform 0.2s ease;
+}
+
+.upload-box:hover {
+border-color: #6366f1;
+background: #f5f3ff;
+transform: translateY(-1px);
+}
+
+.upload-icon {
+width: 48px;
+height: 48px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+margin-bottom: 12px;
+
+border-radius: 50%;
+
+background: #eef2ff;
+color: #4f46e5;
+
+font-size: 25px;
+font-weight: 700;
+}
+
+.upload-box strong {
+color: #1f2937;
+font-size: 15px;
+}
+
+.upload-box span {
+margin-top: 5px;
+color: #64748b;
+font-size: 13px;
+}
+
+.upload-box small {
+margin-top: 8px;
+color: #94a3b8;
+font-size: 12px;
+}
+
+.image-preview {
+overflow: hidden;
+
+border: 1px solid #e5e7eb;
+border-radius: 14px;
+
+background: #f8fafc;
+}
+
+.image-preview img {
+display: block;
+
+width: 100%;
+max-height: 300px;
+
+object-fit: contain;
+
+background: #f1f5f9;
+}
+
+.image-preview-info {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 15px;
+
+padding: 14px 16px;
+}
+
+.image-preview-info div {
+display: flex;
+flex-direction: column;
+min-width: 0;
+}
+
+.image-preview-info strong {
+overflow: hidden;
+
+color: #1f2937;
+font-size: 14px;
+
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.image-preview-info span {
+margin-top: 4px;
+
+color: #16a34a;
+font-size: 12px;
+}
+
+.remove-image-button {
+border: none;
+border-radius: 8px;
+
+padding: 8px 12px;
+
+background: #fee2e2;
+color: #dc2626;
+
+font-size: 13px;
+font-weight: 600;
+
+cursor: pointer;
+}
+
+.remove-image-button:hover {
+background: #fecaca;
+}
+
+@media (max-width: 600px) {
+.image-upload {
+padding: 16px;
+}
+
+.upload-box {
+min-height: 160px;
+}
+
+.image-preview-info {
+align-items: flex-start;
+flex-direction: column;
+}
+
+.remove-image-button {
+width: 100%;
+}
+}

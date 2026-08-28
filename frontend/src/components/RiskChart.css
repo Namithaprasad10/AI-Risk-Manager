@@ -1,0 +1,100 @@
+.risk-chart-card {
+width: 100%;
+margin-top: 24px;
+padding: 28px;
+background: #ffffff;
+border: 1px solid #e5e7eb;
+border-radius: 18px;
+box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+box-sizing: border-box;
+}
+
+.risk-chart-header {
+margin-bottom: 10px;
+}
+
+.risk-chart-label {
+display: block;
+margin-bottom: 6px;
+color: #64748b;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 1px;
+}
+
+.risk-chart-header h3 {
+margin: 0;
+color: #111827;
+font-size: 21px;
+}
+
+.risk-chart-header p {
+margin: 7px 0 0;
+color: #64748b;
+font-size: 14px;
+}
+
+.risk-chart-container {
+position: relative;
+width: 100%;
+height: 280px;
+}
+
+.risk-chart-center {
+position: absolute;
+top: 50%;
+left: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+transform: translate(-50%, -50%);
+pointer-events: none;
+}
+
+.risk-chart-center strong {
+color: #111827;
+font-size: 27px;
+}
+
+.risk-chart-center span {
+margin-top: 3px;
+color: #64748b;
+font-size: 12px;
+}
+
+.risk-chart-status {
+padding: 16px;
+background: #f8fafc;
+border-radius: 12px;
+text-align: center;
+}
+
+.risk-chart-status strong {
+font-size: 16px;
+}
+
+.risk-chart-status p {
+margin: 6px 0 0;
+color: #64748b;
+font-size: 14px;
+line-height: 1.5;
+}
+
+.danger-text {
+color: #dc2626;
+}
+
+.warning-text {
+color: #d97706;
+}
+
+.safe-text {
+color: #16a34a;
+}
+
+@media (max-width: 600px) {
+.risk-chart-card {
+padding: 20px;
+}
+}

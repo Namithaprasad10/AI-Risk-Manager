@@ -1,0 +1,830 @@
+/* =========================================================
+   AI RISK MANAGER - LANDING PAGE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.landing-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.landing-navbar {
+  width: 100%;
+  min-height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+}
+
+.landing-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.landing-logo:first-letter {
+  font-size: 24px;
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.landing-nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.landing-nav-links a:hover {
+  color: #2563eb;
+}
+
+.login-link {
+  padding: 10px 4px;
+}
+
+.nav-button {
+  padding: 11px 20px;
+  border-radius: 9px;
+  background: #2563eb;
+  color: white !important;
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
+}
+
+.nav-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 95px 7% 100px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.hero h1 span {
+  display: block;
+  color: #2563eb;
+}
+
+.hero-content > p {
+  margin: 25px 0 32px;
+  max-width: 590px;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #64748b;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 23px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.primary-button {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: white;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.secondary-button:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+/* =========================================================
+   HERO DASHBOARD PREVIEW
+   ========================================================= */
+
+.hero-dashboard {
+  width: 100%;
+  max-width: 570px;
+  margin-left: auto;
+  padding: 25px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 25px 60px rgba(15, 23, 42, 0.1),
+    0 5px 20px rgba(15, 23, 42, 0.04);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.live-status {
+  font-size: 12px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.preview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.preview-stats > div {
+  padding: 15px;
+  border-radius: 11px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.preview-stats small {
+  display: block;
+  margin-bottom: 8px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.preview-stats strong {
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.preview-stats .danger {
+  color: #dc2626;
+}
+
+.risk-preview {
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 13px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.risk-preview-title {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.fake-chart {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #cbd5e1;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 39px,
+      #e2e8f0 40px
+    );
+}
+
+.chart-line {
+  position: absolute;
+  height: 3px;
+  border-radius: 20px;
+  background: #ef4444;
+  transform-origin: left center;
+}
+
+.line-one {
+  width: 85%;
+  left: 4%;
+  top: 105px;
+  transform: rotate(-12deg);
+}
+
+.line-two {
+  width: 65%;
+  left: 38%;
+  top: 82px;
+  transform: rotate(17deg);
+}
+
+.line-three {
+  width: 45%;
+  left: 65%;
+  top: 105px;
+  transform: rotate(-25deg);
+}
+
+/* =========================================================
+   GENERAL SECTION
+   ========================================================= */
+
+.solutions,
+.how-it-works,
+.analytics-section,
+.final-cta {
+  padding: 100px 7%;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.section-heading > span,
+.analytics-content > span {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.section-heading h2,
+.analytics-content h2 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: #0f172a;
+}
+
+.section-heading h2 strong,
+.analytics-content h2 strong {
+  color: #2563eb;
+}
+
+.section-heading p,
+.analytics-content > p {
+  margin: 18px auto 0;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   SOLUTIONS
+   ========================================================= */
+
+.solutions {
+  background: white;
+}
+
+.solution-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.solution-card {
+  padding: 28px;
+  min-height: 245px;
+  border-radius: 15px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: 0.25s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-5px);
+  border-color: #bfdbfe;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.07);
+}
+
+.solution-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  font-size: 23px;
+}
+
+.solution-card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.solution-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.how-it-works {
+  background: #f8fafc;
+}
+
+.steps {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.step {
+  position: relative;
+  padding: 28px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+}
+
+.step-number {
+  margin-bottom: 20px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.step h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.step p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   ANALYTICS
+   ========================================================= */
+
+.analytics-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+  background: white;
+}
+
+.analytics-content {
+  max-width: 570px;
+}
+
+.analytics-content > p {
+  margin: 20px 0;
+}
+
+.analytics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.analytics-list div {
+  padding: 13px 16px;
+  border-radius: 9px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.analytics-card {
+  padding: 27px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #f8fafc;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.07);
+}
+
+.analytics-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.analytics-card-header span:first-child {
+  font-weight: 800;
+}
+
+.analytics-card-header span:last-child {
+  padding: 7px 12px;
+  border-radius: 7px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.analytics-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.analytics-numbers > div {
+  padding: 15px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.analytics-numbers small {
+  display: block;
+  margin-bottom: 7px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.analytics-numbers strong {
+  font-size: 20px;
+}
+
+.analytics-numbers .safe {
+  color: #16a34a;
+}
+
+.analytics-numbers .danger {
+  color: #dc2626;
+}
+
+/* =========================================================
+   BAR CHART PREVIEW
+   ========================================================= */
+
+.bar-chart {
+  height: 210px;
+  margin-top: 30px;
+  padding: 15px 10px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 12px;
+  border-bottom: 1px solid #cbd5e1;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 41px,
+      #e2e8f0 42px
+    );
+}
+
+.bar-chart div {
+  width: 9%;
+  min-height: 10px;
+  border-radius: 6px 6px 0 0;
+  background: #2563eb;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.final-cta {
+  text-align: center;
+  background: #0f172a;
+  color: white;
+}
+
+.final-cta h2 {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.final-cta p {
+  margin: 18px auto 30px;
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+.final-cta .primary-button {
+  background: #2563eb;
+}
+
+.final-cta .primary-button:hover {
+  background: #3b82f6;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.landing-page footer {
+  padding: 35px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #020617;
+  color: white;
+  border-top: 1px solid #1e293b;
+}
+
+.landing-page footer div {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.landing-page footer p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .landing-navbar {
+    padding: 0 5%;
+  }
+
+  .landing-nav-links {
+    gap: 17px;
+  }
+
+  .hero {
+    padding: 75px 5%;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .hero-content {
+    max-width: 760px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-dashboard {
+    margin: 0 auto;
+  }
+
+  .solutions,
+  .how-it-works,
+  .analytics-section,
+  .final-cta {
+    padding: 80px 5%;
+  }
+
+  .solution-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-section {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .analytics-content {
+    max-width: 750px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .landing-navbar {
+    min-height: auto;
+    padding: 17px 5%;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .landing-nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .landing-nav-links a:not(.login-link):not(.nav-button) {
+    display: none;
+  }
+
+  .hero {
+    padding: 60px 5% 70px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-content > p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .hero-dashboard {
+    padding: 18px;
+  }
+
+  .preview-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-stats > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .preview-stats small {
+    margin: 0;
+  }
+
+  .fake-chart {
+    height: 130px;
+  }
+
+  .solutions,
+  .how-it-works,
+  .analytics-section,
+  .final-cta {
+    padding: 65px 5%;
+  }
+
+  .section-heading {
+    margin-bottom: 35px;
+  }
+
+  .section-heading h2,
+  .analytics-content h2 {
+    font-size: 32px;
+  }
+
+  .solution-grid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-card {
+    min-height: auto;
+  }
+
+  .analytics-numbers {
+    grid-template-columns: 1fr;
+  }
+
+  .bar-chart {
+    height: 170px;
+  }
+
+  .landing-page footer {
+    padding: 30px 5%;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .landing-logo {
+    font-size: 17px;
+  }
+
+  .landing-nav-links {
+    gap: 8px 12px;
+  }
+
+  .nav-button {
+    padding: 9px 14px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
+  .hero-dashboard {
+    border-radius: 13px;
+  }
+}

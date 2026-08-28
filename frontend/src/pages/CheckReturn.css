@@ -1,0 +1,473 @@
+/* =========================================
+   CHECK RETURN PAGE
+========================================= */
+
+.check-return-page {
+  min-height: 100vh;
+  padding: 40px 60px;
+  background: #f5f7fb;
+  color: #172033;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.check-return-header {
+  max-width: 1200px;
+  margin: 0 auto 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.check-return-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.check-return-header p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+  border: none;
+  background: white;
+  color: #374151;
+
+  padding: 11px 18px;
+
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: #f9fafb;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   MAIN TWO COLUMN LAYOUT
+========================================= */
+
+.check-return-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 30px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================
+   COMMON CARD
+========================================= */
+
+.check-return-card,
+.return-result-card {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 18px;
+
+  padding: 32px;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.06);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.check-return-card h2,
+.return-result-card h2 {
+  margin: 0 0 25px;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.check-return-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* =========================================
+   FORM FIELD
+========================================= */
+
+.return-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.return-field label {
+  font-size: 13px;
+  font-weight: 650;
+  color: #374151;
+}
+
+.return-field input,
+.return-field select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border: 1px solid #d7dce5;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #111827;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.return-field input::placeholder {
+  color: #9ca3af;
+}
+
+.return-field input:focus,
+.return-field select:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+/* =========================================
+   ANALYZE BUTTON
+========================================= */
+
+.analyze-return-button {
+  width: 100%;
+
+  margin-top: 5px;
+
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #4f46e5;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.analyze-return-button:hover:not(:disabled) {
+  background: #4338ca;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 16px rgba(79, 70, 229, 0.22);
+}
+
+.analyze-return-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.return-error {
+  padding: 12px 14px;
+
+  border-radius: 9px;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+
+  color: #b91c1c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   RESULT CARD
+========================================= */
+
+.return-result-card {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   RISK CARD TOP BORDER
+========================================= */
+
+.return-result-card.high {
+  border-top: 5px solid #ef4444;
+}
+
+.return-result-card.medium {
+  border-top: 5px solid #f59e0b;
+}
+
+.return-result-card.low {
+  border-top: 5px solid #22c55e;
+}
+
+
+/* =========================================
+   RISK STATUS
+========================================= */
+
+.return-risk-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 9px 15px;
+
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  margin-bottom: 28px;
+}
+
+.return-result-card.high .return-risk-status {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.return-result-card.medium .return-risk-status {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.return-result-card.low .return-risk-status {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+
+/* =========================================
+   RESULT INFORMATION
+========================================= */
+
+.return-result-info {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 12px;
+}
+
+.return-result-info div {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 15px 16px;
+
+  background: #f8fafc;
+
+  border: 1px solid #eef2f7;
+
+  border-radius: 11px;
+}
+
+.return-result-info span {
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.return-result-info strong {
+  color: #111827;
+
+  font-size: 17px;
+
+  font-weight: 750;
+
+  text-align: right;
+}
+
+
+/* =========================================
+   PROBABILITY HIGHLIGHT
+========================================= */
+
+.return-result-info div:first-child {
+  background: #f8fafc;
+}
+
+.return-result-info div:first-child strong {
+  font-size: 25px;
+}
+
+
+/* =========================================
+   RESULT MESSAGE
+========================================= */
+
+.return-result-message {
+  margin: 25px 0 0;
+
+  padding: 16px;
+
+  border-radius: 11px;
+
+  background: #f8fafc;
+
+  color: #475569;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   EMPTY RESULT AREA
+========================================= */
+
+.check-return-layout:has(
+  .check-return-card:only-child
+) {
+  grid-template-columns: 1fr;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .check-return-page {
+    padding: 30px;
+  }
+
+  .check-return-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .return-result-card {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .check-return-page {
+    padding: 20px 15px;
+  }
+
+  .check-return-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+  }
+
+  .check-return-header h1 {
+    font-size: 27px;
+  }
+
+  .back-button {
+    width: 100%;
+  }
+
+  .check-return-card,
+  .return-result-card {
+    padding: 22px;
+
+    border-radius: 14px;
+  }
+
+  .check-return-card h2,
+  .return-result-card h2 {
+    font-size: 19px;
+  }
+
+  .return-result-info div {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .return-result-info strong {
+    text-align: left;
+  }
+}
