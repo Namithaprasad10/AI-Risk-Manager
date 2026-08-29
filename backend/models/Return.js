@@ -3,8 +3,7 @@ import mongoose from "mongoose";
 const returnSchema = new mongoose.Schema(
   {
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
       required: true,
     },
 
@@ -29,6 +28,11 @@ const returnSchema = new mongoose.Schema(
     },
 
     riskScore: {
+      type: Number,
+      default: 0,
+    },
+
+    riskProbability: {
       type: Number,
       default: 0,
     },

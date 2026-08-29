@@ -17,13 +17,23 @@ export const analyzeReturn = async (req, res) => {
 
     let riskScore = 0;
 
-    if (Number(returnCount) >= 5) {
-      riskScore += 50;
+    // =========================
+    // RETURN COUNT RISK
+    // =========================
+
+    if (Number(returnCount) >= 10) {
+      riskScore += 60;
+    } else if (Number(returnCount) >= 5) {
+      riskScore += 45;
     } else if (Number(returnCount) >= 3) {
       riskScore += 30;
     } else {
       riskScore += 10;
     }
+
+    // =========================
+    // ORDER AMOUNT RISK
+    // =========================
 
     if (Number(orderAmount) >= 50000) {
       riskScore += 30;
@@ -33,12 +43,30 @@ export const analyzeReturn = async (req, res) => {
       riskScore += 5;
     }
 
+    // =========================
+    // RETURN REASON RISK
+    // =========================
+
     if (
       returnReason === "Damaged" ||
       returnReason === "Wrong Item"
     ) {
       riskScore += 5;
+    } else if (
+      returnReason === "Changed Mind"
+    ) {
+      riskScore += 2;
     }
+
+    // =========================
+    // LIMIT SCORE
+    // =========================
+
+    riskScore = Math.min(riskScore, 100);
+
+    // =========================
+    // RISK LEVEL
+    // =========================
 
     let riskLevel = "Low";
 
@@ -48,8 +76,12 @@ export const analyzeReturn = async (req, res) => {
       riskLevel = "Medium";
     }
 
+    // =========================
+    // CREATE RETURN
+    // =========================
+
     const newReturn = await Return.create({
-      userId: req.user.id, // IMPORTANT
+      userId: req.user.id,
 
       orderId,
 
@@ -57,20 +89,30 @@ export const analyzeReturn = async (req, res) => {
 
       returnCount: Number(returnCount || 0),
 
-      returnReason,
+      returnReason: returnReason || "Not specified",
 
       riskScore,
+
+      riskProbability: riskScore,
 
       riskLevel,
     });
 
+    // =========================
+    // RESPONSE
+    // =========================
+
     res.status(201).json({
       message: "Return analyzed successfully",
+
       return: newReturn,
     });
 
   } catch (error) {
-    console.error("Return analysis error:", error);
+    console.error(
+      "Return analysis error:",
+      error
+    );
 
     res.status(500).json({
       message: "Failed to analyze return",
@@ -79,10 +121,12 @@ export const analyzeReturn = async (req, res) => {
 };
 
 
+// =====================================
+// GET RETURNS
+// =====================================
+
 export const getReturns = async (req, res) => {
   try {
-    // IMPORTANT: ONLY THIS LOGGED-IN USER'S RETURNS
-
     const returns = await Return.find({
       userId: req.user.id,
     }).sort({
