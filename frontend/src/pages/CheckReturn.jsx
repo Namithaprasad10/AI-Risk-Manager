@@ -8,7 +8,6 @@ function CheckReturn() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    userId: "",
     orderId: "",
     orderAmount: "",
     returnCount: "",
@@ -59,7 +58,7 @@ function CheckReturn() {
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/returns/analyze",
+        "/api/returns/analyze",
         {
           method: "POST",
 
@@ -157,25 +156,6 @@ function CheckReturn() {
           <h2>Return Details</h2>
 
           <form onSubmit={handleSubmit}>
-
-            {/* USER ID */}
-
-            <div className="return-field">
-
-              <label>
-                User ID
-              </label>
-
-              <input
-                type="text"
-                name="userId"
-                placeholder="Enter user ID"
-                value={formData.userId}
-                onChange={handleChange}
-                required
-              />
-
-            </div>
 
 
             {/* ORDER ID */}
